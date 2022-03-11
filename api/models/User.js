@@ -8,6 +8,15 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
+        validate: {
+            validator: async function (value) {
+                if (!this.isModified('email')) return false;
+
+                const email = await User.findOne({ email: value });
+                return !email;
+            },
+            message: 'You must fill in the description field or the image field'
+        },
     },
     password: {
         type: String,

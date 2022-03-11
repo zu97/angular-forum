@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const config = require('./config');
 const users = require('./app/users');
+const posts = require('./app/posts');
 
 const app = express();
 const port = 8000;
@@ -11,6 +12,7 @@ const port = 8000;
 app.use(cors());
 app.use(express.json());
 app.use('/users', users);
+app.use('/posts', posts);
 
 (async () => {
     await mongoose.connect(config.mongoConfig.url, config.mongoConfig.options);
