@@ -16,6 +16,7 @@ import { LayoutComponent } from './ui/layout/layout.component';
 import { FileInputComponent } from './ui/file-input/file-input.component';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
+import { ValidateSomeoneFilledDirective } from './directives/validate-someone-filled.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ValidateIdenticalDirective } from './directives/validate-identical.dire
     LayoutComponent,
     FileInputComponent,
     LoaderComponent,
-    ValidateIdenticalDirective
+    ValidateIdenticalDirective,
+    ValidateSomeoneFilledDirective
   ],
   imports: [
     BrowserModule,
