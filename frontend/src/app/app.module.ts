@@ -34,6 +34,7 @@ import { ValidateIdenticalDirective } from './directives/validate-identical.dire
 import { ValidateSomeoneFilledDirective } from './directives/validate-someone-filled.directive';
 import { RegisterComponent } from './pages/register/register.component';
 import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CenteredCardComponent } from './ui/centered-card/centered-card.componen
     ValidateIdenticalDirective,
     ValidateSomeoneFilledDirective,
     RegisterComponent,
-    CenteredCardComponent
+    CenteredCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
