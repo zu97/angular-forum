@@ -9,6 +9,18 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { usersReducer } from './store/users.reducer';
+import { postsReducer } from './store/posts.reducer';
+import { commentsReducer } from './store/comments.reducer';
+
+import { UsersEffects } from './store/users.effects';
+import { PostsEffects } from './store/posts.effects';
+import { CommentsEffects } from './store/comments.effects';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -38,7 +50,15 @@ import { ValidateSomeoneFilledDirective } from './directives/validate-someone-fi
     MatButtonModule,
     MatSidenavModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    StoreModule.forRoot({
+      users: usersReducer,
+      posts: postsReducer,
+      comments: commentsReducer,
+    }, { metaReducers }),
+    EffectsModule.forRoot([UsersEffects, PostsEffects, CommentsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
