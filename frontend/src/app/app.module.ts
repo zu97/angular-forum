@@ -38,6 +38,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ImagePipe } from './pipes/image.pipe';
 import { PostsComponent } from './pages/posts/posts.component';
 import { PostItemComponent } from './pages/posts/post-item/post-item.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PostItemComponent } from './pages/posts/post-item/post-item.component';
     LoginComponent,
     ImagePipe,
     PostsComponent,
-    PostItemComponent
+    PostItemComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
