@@ -39,6 +39,7 @@ import { ImagePipe } from './pipes/image.pipe';
 import { PostsComponent } from './pages/posts/posts.component';
 import { PostItemComponent } from './pages/posts/post-item/post-item.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     ImagePipe,
     PostsComponent,
     PostItemComponent,
-    NewPostComponent
+    NewPostComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
