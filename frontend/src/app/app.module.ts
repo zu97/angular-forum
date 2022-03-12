@@ -41,6 +41,7 @@ import { PostItemComponent } from './pages/posts/post-item/post-item.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { CommentItemsComponent } from './pages/post-details/comment-items/comment-items.component';
+import { AddCommentComponent } from './pages/post-details/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { CommentItemsComponent } from './pages/post-details/comment-items/commen
     PostItemComponent,
     NewPostComponent,
     PostDetailsComponent,
-    CommentItemsComponent
+    CommentItemsComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
