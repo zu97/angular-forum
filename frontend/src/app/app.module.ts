@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { usersReducer } from './store/users.reducer';
 import { postsReducer } from './store/posts.reducer';
@@ -29,6 +32,8 @@ import { FileInputComponent } from './ui/file-input/file-input.component';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
 import { ValidateSomeoneFilledDirective } from './directives/validate-someone-filled.directive';
+import { RegisterComponent } from './pages/register/register.component';
+import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { ValidateSomeoneFilledDirective } from './directives/validate-someone-fi
     FileInputComponent,
     LoaderComponent,
     ValidateIdenticalDirective,
-    ValidateSomeoneFilledDirective
+    ValidateSomeoneFilledDirective,
+    RegisterComponent,
+    CenteredCardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +64,11 @@ import { ValidateSomeoneFilledDirective } from './directives/validate-someone-fi
       users: usersReducer,
       posts: postsReducer,
       comments: commentsReducer,
-    }, { metaReducers }),
-    EffectsModule.forRoot([UsersEffects, PostsEffects, CommentsEffects])
+    }, {}),
+    EffectsModule.forRoot([UsersEffects, PostsEffects, CommentsEffects]),
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
