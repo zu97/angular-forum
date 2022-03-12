@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { LayoutComponent } from './ui/layout/layout.component';
 import { FileInputComponent } from './ui/file-input/file-input.component';
 import { LoaderComponent } from './ui/loader/loader.component';
+import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoaderComponent } from './ui/loader/loader.component';
     PageNotFoundComponent,
     LayoutComponent,
     FileInputComponent,
-    LoaderComponent
+    LoaderComponent,
+    ValidateIdenticalDirective
   ],
   imports: [
     BrowserModule,
