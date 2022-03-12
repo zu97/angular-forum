@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { StoreModule } from '@ngrx/store';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -42,6 +42,16 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { CommentItemsComponent } from './pages/post-details/comment-items/comment-items.component';
 import { AddCommentComponent } from './pages/post-details/add-comment/add-comment.component';
+import { localStorageSync } from 'ngrx-store-localstorage';
+
+const localStorageSyncReducer = (reducer: ActionReducer<any>) => {
+  return localStorageSync({
+    keys: [{users: ['user']}],
+    rehydrate: true,
+  })(reducer);
+};
+
+const metaReducers: MetaReducer[] = [localStorageSyncReducer];
 
 @NgModule({
   declarations: [
@@ -80,7 +90,7 @@ import { AddCommentComponent } from './pages/post-details/add-comment/add-commen
       users: usersReducer,
       posts: postsReducer,
       comments: commentsReducer,
-    }, {}),
+    }, { metaReducers }),
     EffectsModule.forRoot([UsersEffects, PostsEffects, CommentsEffects]),
     MatCardModule,
     MatFormFieldModule,
