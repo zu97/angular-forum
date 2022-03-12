@@ -10,15 +10,19 @@ const UserSchema = new Schema({
         required: true,
         validate: {
             validator: async function (value) {
-                if (!this.isModified('email')) return false;
+                if (!this.isModified('email')) return true;
 
-                const email = await User.findOne({ email: value });
-                return !email;
+                const user = await User.findOne({ email: value });
+                return !user;
             },
-            message: 'You must fill in the description field or the image field'
+            message: 'This user is already registered'
         },
     },
     password: {
+        type: String,
+        required: true,
+    },
+    name: {
         type: String,
         required: true,
     },
