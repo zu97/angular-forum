@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     title: {
@@ -31,7 +32,12 @@ const PostSchema = new Schema({
             },
             message: 'You must fill in the description field or the image field'
         },
-    }
+    },
+    datetime: {
+        type: String,
+        default: new Date().toISOString(),
+        required: true,
+    },
 });
 
 const Post = mongoose.model('Post', PostSchema);
