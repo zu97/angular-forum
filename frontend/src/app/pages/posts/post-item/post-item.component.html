@@ -1,0 +1,14 @@
+<a [routerLink]="['/posts/', post._id]" class="post-link">
+  <mat-card fxLayout="row">
+    <div>
+      <img mat-card-image [src]="post.image | image"
+           [alt]="post.title"
+           class="post-img"
+      />
+    </div>
+    <mat-card-content>
+      <mat-card-subtitle>{{ post.datetime }} by {{ post.user.name }}</mat-card-subtitle>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+    </mat-card-content>
+  </mat-card>
+</a>

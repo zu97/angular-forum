@@ -36,6 +36,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ImagePipe } from './pipes/image.pipe';
+import { PostsComponent } from './pages/posts/posts.component';
+import { PostItemComponent } from './pages/posts/post-item/post-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { ImagePipe } from './pipes/image.pipe';
     RegisterComponent,
     CenteredCardComponent,
     LoginComponent,
-    ImagePipe
+    ImagePipe,
+    PostsComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,
