@@ -35,6 +35,7 @@ import { ValidateSomeoneFilledDirective } from './directives/validate-someone-fi
 import { RegisterComponent } from './pages/register/register.component';
 import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ImagePipe } from './pipes/image.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoginComponent } from './pages/login/login.component';
     ValidateSomeoneFilledDirective,
     RegisterComponent,
     CenteredCardComponent,
-    LoginComponent
+    LoginComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,
