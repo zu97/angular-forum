@@ -1,0 +1,14 @@
+<div class="error" *ngIf="error | async">
+  {{ error | async }}
+</div>
+
+<app-loader [isLoading]="isLoading | async" size="lg">
+  <div fxLayout="column" fxLayoutGap="16px">
+    <mat-card *ngFor="let comment of (comments | async)">
+      <mat-card-subtitle>{{ comment.user.name }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{ comment.text }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</app-loader>
