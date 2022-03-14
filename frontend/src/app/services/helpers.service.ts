@@ -30,7 +30,7 @@ export class HelpersService {
     return catchError((e) => {
       let error = null;
 
-      if (e instanceof HttpErrorResponse && e.status === 400) {
+      if (e instanceof HttpErrorResponse && (e.status === 400 || e.status === 404)) {
         error = e.error;
       } else {
         this.snackbar.open('Server Error');

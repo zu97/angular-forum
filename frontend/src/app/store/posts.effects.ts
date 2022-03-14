@@ -6,7 +6,7 @@ import {
   addPostSuccess,
   fetchPostsFailure,
   fetchPostsRequest,
-  fetchPostsSuccess, getPostRequest, getPostSuccess
+  fetchPostsSuccess, getPostFailure, getPostRequest, getPostSuccess
 } from './posts.actions';
 import { map, mergeMap, NEVER, tap, withLatestFrom } from 'rxjs';
 import { PostsService } from '../services/posts.service';
@@ -58,7 +58,7 @@ export class PostsEffects {
     ofType(getPostRequest),
     mergeMap(({id}) => this.postsService.getPost(id).pipe(
       map((post) => getPostSuccess({post})),
-      this.helpersService.catchServerError(addPostFailure),
+      this.helpersService.catchServerError(getPostFailure),
     )),
   ));
 

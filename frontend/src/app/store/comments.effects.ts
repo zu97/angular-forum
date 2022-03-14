@@ -44,7 +44,7 @@ export class CommentsEffects {
           map(() => addCommentsSuccess()),
           tap(() => {
             this.helpersService.openSnackBar('Comment successfully added');
-            void this.router.navigate(['/posts', data.id]);
+            this.store.dispatch(fetchCommentsRequest({id: data.id}));
           }),
           this.helpersService.catchServerError(addCommentsFailure),
         )

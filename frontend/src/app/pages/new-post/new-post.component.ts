@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/types';
 import { NgForm } from '@angular/forms';
 import { addPostRequest } from '../../store/posts.actions';
+import { AddPostError } from '../../models/post.model';
 
 @Component({
   selector: 'app-new-post',
@@ -14,7 +15,7 @@ export class NewPostComponent {
   @ViewChild('f') form!: NgForm;
 
   isLoading: Observable<boolean>;
-  error: Observable<null | string>;
+  error: Observable<null | AddPostError>;
 
   constructor(
     private store: Store<AppState>,
@@ -24,8 +25,6 @@ export class NewPostComponent {
   }
 
   onSubmit(): void {
-    console.log(this.form);
-
     if (this.form.invalid) {
       return;
     }

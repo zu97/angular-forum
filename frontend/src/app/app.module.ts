@@ -17,10 +17,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { localStorageSync } from 'ngrx-store-localstorage';
 import { usersReducer } from './store/users.reducer';
 import { postsReducer } from './store/posts.reducer';
 import { commentsReducer } from './store/comments.reducer';
-
 import { UsersEffects } from './store/users.effects';
 import { PostsEffects } from './store/posts.effects';
 import { CommentsEffects } from './store/comments.effects';
@@ -42,7 +42,6 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { CommentItemsComponent } from './pages/post-details/comment-items/comment-items.component';
 import { AddCommentComponent } from './pages/post-details/add-comment/add-comment.component';
-import { localStorageSync } from 'ngrx-store-localstorage';
 
 const localStorageSyncReducer = (reducer: ActionReducer<any>) => {
   return localStorageSync({

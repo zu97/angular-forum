@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../store/types';
 import { NgForm } from '@angular/forms';
 import { addCommentsRequest } from '../../../store/comments.actions';
+import { AddCommentError } from '../../../models/comment.model';
 
 @Component({
   selector: 'app-add-comment',
@@ -17,7 +18,7 @@ export class AddCommentComponent {
   @ViewChild('f') form!: NgForm;
 
   isLoading: Observable<boolean>;
-  error: Observable<null | string>;
+  error: Observable<null | AddCommentError>;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,14 +1,18 @@
 <div class="error" *ngIf="error | async">
-  {{ error | async }}
+  {{ (error | async)?.error }}
 </div>
 
 <app-loader [isLoading]="isLoading | async" size="lg">
   <div fxLayout="column" fxLayoutGap="16px">
     <mat-card *ngFor="let comment of (comments | async)">
-      <mat-card-subtitle>{{ comment.user.name }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ comment.datetime }} by {{ comment.user.name }}</mat-card-subtitle>
       <mat-card-content>
         <p>{{ comment.text }}</p>
       </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="!(comments | async)?.length">
+      No message yet
     </mat-card>
   </div>
 </app-loader>

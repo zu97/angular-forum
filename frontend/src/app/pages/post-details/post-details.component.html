@@ -1,5 +1,5 @@
 <div class="error" *ngIf="error | async">
-  {{ error | async }}
+  {{ (error | async)?.error }}
 </div>
 
 <app-loader [isLoading]="isLoading | async" size="lg">
@@ -22,7 +22,7 @@
       <mat-card-title>Comments</mat-card-title>
     </mat-card>
     <app-comment-items [post]="$post"></app-comment-items>
-    <mat-card>
+    <mat-card *ngIf="(user | async)">
       <app-add-comment [post]="$post"></app-add-comment>
     </mat-card>
   </div>

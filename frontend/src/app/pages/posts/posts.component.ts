@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../../models/post.model';
+import { Post, PostError } from '../../models/post.model';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/types';
@@ -13,7 +13,7 @@ import { fetchPostsRequest } from '../../store/posts.actions';
 export class PostsComponent implements OnInit {
   posts: Observable<Post[]>;
   isLoading: Observable<boolean>;
-  error: Observable<null | string>;
+  error: Observable<null | PostError>;
 
   constructor(
     private store: Store<AppState>,

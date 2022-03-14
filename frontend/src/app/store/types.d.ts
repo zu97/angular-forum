@@ -1,6 +1,6 @@
 import { LoginError, RegisterError, User } from '../models/user.model';
-import { Post } from '../models/post.model';
-import { Comment } from '../models/comment.model';
+import { AddPostError, Post, PostError } from '../models/post.model';
+import { AddCommentError, Comment, CommentError } from '../models/comment.model';
 
 export type UsersState = {
   user: null | User,
@@ -14,19 +14,19 @@ export type PostsState = {
   posts: Post[],
   post: null | Post,
   fetchLoading: boolean,
-  fetchError: null | string,
+  fetchError: null | PostError,
   addLoading: boolean,
-  addError: null | string,
+  addError: null | AddPostError,
   getLoading: boolean,
-  getError: null | string,
+  getError: null | PostError,
 };
 
 export type CommentsState = {
   comments: Comment[],
   fetchLoading: boolean,
-  fetchError: null | string,
+  fetchError: null | CommentError,
   addLoading: boolean,
-  addError: null | string,
+  addError: null | AddCommentError,
 };
 
 export type AppState = {

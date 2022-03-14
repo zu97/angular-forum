@@ -1,5 +1,5 @@
 <div class="error" *ngIf="error | async">
-  {{ error | async }}
+  {{ (error | async)?.error }}
 </div>
 
 <app-loader [isLoading]="isLoading | async" size="lg">

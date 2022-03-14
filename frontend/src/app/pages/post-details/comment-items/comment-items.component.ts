@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../../../models/post.model';
 import { Observable } from 'rxjs';
-import { Comment } from '../../../models/comment.model';
+import { Comment, CommentError } from '../../../models/comment.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../store/types';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ export class CommentItemsComponent implements OnInit {
 
   comments: Observable<Comment[]>;
   isLoading: Observable<boolean>;
-  error: Observable<null | string>;
+  error: Observable<null | CommentError>;
 
   constructor(
     private route: ActivatedRoute,
