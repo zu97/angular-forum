@@ -39,7 +39,7 @@ UserSchema.methods.generateToken = function() {
 };
 
 UserSchema.methods.checkPassword = function(password) {
-    return bcrypt.compare(password, this.password);
+    return password && bcrypt.compare(password, this.password);
 };
 
 UserSchema.pre('save', async function(next) {

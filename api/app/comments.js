@@ -19,8 +19,6 @@ router.post('/:id', auth, async (req, res, next) => {
         postData.user = req.user.id;
         postData.post = req.params.id;
 
-        console.log(postData);
-
         const comment = new Comment(postData);
         await comment.save();
 

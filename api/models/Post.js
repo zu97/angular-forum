@@ -13,25 +13,20 @@ const PostSchema = new Schema({
     },
     description: {
         type: String,
-        validate: {
-            validator: function (value) {
-                if (!value && !this.image) {
-                    return false;
-                }
-            },
-            message: 'You must fill in the description field or the image field'
+        required: function() {
+            return !this.description && !this.image;
         },
     },
     image: {
         type: String,
-        validate: {
-            validator: function (value) {
-                if (!value && !this.description) {
-                    return false;
-                }
-            },
-            message: 'You must fill in the description field or the image field'
+        required: function() {
+            return !this.description && !this.image;
         },
+    },
+    commentsCount: {
+        type: Number,
+        default: 0,
+        required: true,
     },
     datetime: {
         type: String,
