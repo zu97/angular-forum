@@ -18,7 +18,7 @@ app.use('/users', users);
 app.use('/posts', posts);
 app.use('/comments', comments);
 
-(async () => {
+const run = async () => {
     await mongoose.connect(config.mongoConfig.url, config.mongoConfig.options);
 
     app.listen(port, () =>  {
@@ -28,4 +28,6 @@ app.use('/comments', comments);
     process.on('exit', () => {
         mongoose.disconnect();
     });
-})();
+};
+
+run().catch((e) => console.log(e));
